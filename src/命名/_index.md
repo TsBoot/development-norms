@@ -55,16 +55,16 @@ import { exampleFunctionName } from "./utilFunctionPath/fileName.ts"
 
 ### 适用范围
 
-* ES-Class 类名
+* ES-Class 类名(ES5以函数方式定义的构造函数)
 * ES-Component 组件名
 * TS-Type 类型名
-* TS-abstract 抽象类名
+* TS-Abstract 抽象类名
 * TS-Enum 枚举名
 * TS-Interface 接口名
 * Template-Component 组件名
 * 文件夹内是对单个`类、组件、类型`的拆分，以大驼峰命名
 
-注：不建议以I开头作为类型名称。
+注：不建议以I开头作为接口名称。
 
 ```ts
 // 类型
@@ -170,6 +170,8 @@ const my_name = "Alice"
 ```JS
 const NODE_ENV = "development"
 const __ROOT_DIR__ = "/app-dir"
+const MAX_COUNT = 10
+const BASE_URL = 'https://www.baidu.com/'
 ```
 
 ## 首字母大写命名法 - upperFirst
@@ -181,3 +183,40 @@ const __ROOT_DIR__ = "/app-dir"
 ```ts
 const My_Name = "Bob"
 ```
+
+# 缩写
+
+## 允许的常见缩写
+
+str => string
+num => number
+obj => object
+fun => function
+arr => array
+res,rest => result
+res,resp => response
+req => request
+
+注：res在语义不冲突时可用
+
+## 循环内部常见缩写
+
+> 原则上成对出现
+
+i => item // 语义不冲突可以用
+i => index, o => object
+
+n => 表示第n项, m => member
+k => key, v => value
+
+
+# 函数命名动词前缀
+
+命名规则 : 前缀为动词
+
+|动词|含义|返回值|
+| - | - | - |
+|has|判断是否含有某个值|函数返回一个布尔值。true：含有此值；false：不含有此值|
+|is |判断是否为某个值|函数返回一个布尔值。true：为某个值；false：不为某个值|
+|get|获取某个值|函数返回一个需要获取的值，或获取失败状态|
+|set|设置某个值|无返回值、返回是否设置成功或者返回链式对象、返回设置成功状态|
