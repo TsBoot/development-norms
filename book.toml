@@ -1,6 +1,6 @@
 [book]
 authors = ["gaoyi"]
-language = "cn"
+language = "zh-Hans"
 multilingual = false
 src = "src"
 [build]
