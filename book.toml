@@ -1,0 +1,7 @@
+[book]
+authors = ["gaoyi"]
+language = "cn"
+multilingual = false
+src = "src"
+[build]
+build-dir = "./docs"
