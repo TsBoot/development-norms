@@ -77,7 +77,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="注释/_index.html"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="注释/_index.html"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li><li class="chapter-item expanded "><a href="console/_index.html"><strong aria-hidden="true">4.</strong> console</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -302,31 +302,36 @@ const BASE_URL = 'https://www.baidu.com/'
 <pre><code class="language-ts">const My_Name = &quot;Bob&quot;
 </code></pre>
 <h1 id="缩写"><a class="header" href="#缩写">缩写</a></h1>
-<h2 id="允许的常见缩写"><a class="header" href="#允许的常见缩写">允许的常见缩写</a></h2>
-<p>str =&gt; string
+<p>尽量不要缩写即使变量名称很长也不要紧，只要能提高代码可读性就可以，打包工具可以优化变量名称</p>
+<h2 id="常见的允许的常见缩写"><a class="header" href="#常见的允许的常见缩写">常见的允许的常见缩写</a></h2>
+<p>可以继续补充</p>
+<pre><code>str =&gt; string
 num =&gt; number
 obj =&gt; object
 fun =&gt; function
 arr =&gt; array
 res,rest =&gt; result
 res,resp =&gt; response
-req =&gt; request</p>
+req =&gt; request
+</code></pre>
 <p>注：res在语义不冲突时可用</p>
 <h2 id="循环内部常见缩写"><a class="header" href="#循环内部常见缩写">循环内部常见缩写</a></h2>
 <blockquote>
 <p>原则上成对出现</p>
 </blockquote>
-<p>i =&gt; item // 语义不冲突可以用
-i =&gt; index, o =&gt; object</p>
-<p>n =&gt; 表示第n项, m =&gt; member
-k =&gt; key, v =&gt; value</p>
+<pre><code>i =&gt; item // 语义不冲突可以用
+i =&gt; index, o =&gt; object
+
+n =&gt; 表示第n项, m =&gt; member
+k =&gt; key, v =&gt; value
+</code></pre>
 <h1 id="函数命名动词前缀"><a class="header" href="#函数命名动词前缀">函数命名动词前缀</a></h1>
 <p>命名规则 : 前缀为动词</p>
 <table><thead><tr><th>动词</th><th>含义</th><th>返回值</th></tr></thead><tbody>
-<tr><td>has</td><td>判断是否含有某个值</td><td>函数返回一个布尔值。true：含有此值；false：不含有此值</td></tr>
-<tr><td>is</td><td>判断是否为某个值</td><td>函数返回一个布尔值。true：为某个值；false：不为某个值</td></tr>
-<tr><td>get</td><td>获取某个值</td><td>函数返回一个需要获取的值，或获取失败状态</td></tr>
-<tr><td>set</td><td>设置某个值</td><td>无返回值、返回是否设置成功或者返回链式对象、返回设置成功状态</td></tr>
+<tr><td>has-</td><td>判断是否含有某个值</td><td>函数返回一个布尔值。true：含有此值；false：不含有此值</td></tr>
+<tr><td>is-</td><td>判断是否为某个值</td><td>函数返回一个布尔值。true：为某个值；false：不为某个值</td></tr>
+<tr><td>get-</td><td>获取某个值</td><td>函数返回一个需要获取的值，或获取失败状态</td></tr>
+<tr><td>set-</td><td>设置某个值</td><td>无返回值、返回是否设置成功或者返回链式对象、返回设置成功状态</td></tr>
 </tbody></table>
 
                     </main>
