@@ -1,7 +1,19 @@
 [book]
+title = "前端开发规范"
+description = "约定了前端开发规范."
 authors = ["gaoyi"]
 language = "zh-Hans"
 multilingual = false
 src = "src"
 [build]
 build-dir = "./docs"
+[rust]
+edition = "2018"
+
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "navy"
+mathjax-support = true
+git-repository-url = "https://github.com/TsBoot/development-norms"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/TsBoot/development-norms/edit/master/guide/{path}"
