@@ -16,4 +16,4 @@ preferred-dark-theme = "navy"
 mathjax-support = true
 git-repository-url = "https://github.com/TsBoot/development-norms"
 git-repository-icon = "fa-github"
-edit-url-template = "https://github.com/TsBoot/development-norms/edit/master/guide/{path}"
+edit-url-template = "https://github.com/TsBoot/development-norms/edit/master/{path}"
