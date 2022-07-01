@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>注释 - 前端开发规范</title>
+        <title>异步代码 - 前端开发规范</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="约定了前端开发规范.">
@@ -77,7 +77,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="../注释/_index.html" class="active"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="../html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li><li class="chapter-item expanded "><a href="../console/_index.html"><strong aria-hidden="true">4.</strong> console</a></li><li class="chapter-item expanded "><a href="../开发工具插件/_index.html"><strong aria-hidden="true">5.</strong> 开发工具插件</a></li><li class="chapter-item expanded "><a href="../代码提交流程/_index.html"><strong aria-hidden="true">6.</strong> 代码提交流程</a></li><li class="chapter-item expanded "><a href="../异步代码/_index.html"><strong aria-hidden="true">7.</strong> 异步代码</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="../注释/_index.html"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="../html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li><li class="chapter-item expanded "><a href="../console/_index.html"><strong aria-hidden="true">4.</strong> console</a></li><li class="chapter-item expanded "><a href="../开发工具插件/_index.html"><strong aria-hidden="true">5.</strong> 开发工具插件</a></li><li class="chapter-item expanded "><a href="../代码提交流程/_index.html"><strong aria-hidden="true">6.</strong> 代码提交流程</a></li><li class="chapter-item expanded "><a href="../异步代码/_index.html" class="active"><strong aria-hidden="true">7.</strong> 异步代码</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -115,7 +115,7 @@
                         <a href="https://github.com/TsBoot/development-norms" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/TsBoot/development-norms/edit/master/src/注释/_index.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/TsBoot/development-norms/edit/master/src/异步代码/_index.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
                     </div>
@@ -142,23 +142,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="注释"><a class="header" href="#注释">注释</a></h1>
-<p>单行注释</p>
-<p>函数注释</p>
-<p>类注释</p>
-<p>原则上无需注释开发者信息，因为git中保留了开发者信息</p>
-<p>文档同步编写原则</p>
-<p>原则上应该编写单元测试代码</p>
+                        <h1 id="异步代码"><a class="header" href="#异步代码">异步代码</a></h1>
+<h2 id="settimeoutsetinterval-使用结束需要及时销毁"><a class="header" href="#settimeoutsetinterval-使用结束需要及时销毁">setTimeout,setInterval 使用结束需要及时销毁</a></h2>
+<pre><code class="language-js">const timeoutID = setTimeout(() =&gt; {
+  clearTimeout(timeoutID)
+}, 100); 
+
+
+let i = 0
+const intervalID = setInterval(() =&gt; {
+  if (i&gt;5) {
+    clearInterval(intervalID);
+  }
+}, 100);
+</code></pre>
+<h2 id="原则上禁止使用宏任务代码解决同步代码和微任务bug"><a class="header" href="#原则上禁止使用宏任务代码解决同步代码和微任务bug">原则上禁止使用宏任务代码解决同步代码和微任务Bug</a></h2>
+<p>例如：</p>
+<ol>
+<li>页面不跳转时获取不到数据，使用setTimeout跳转页面</li>
+<li>修改页面数据不更新，使用setTimeout刷新页面</li>
+<li>无法触发某个功能或事件，使用setTimeout触发事件</li>
+</ol>
+<h2 id="禁止直接操作dom"><a class="header" href="#禁止直接操作dom">禁止直接操作DOM</a></h2>
+<h2 id="尽量使用async-await编写异步代码"><a class="header" href="#尽量使用async-await编写异步代码">尽量使用async await编写异步代码</a></h2>
+<ol>
+<li>使用<code>async/await</code>编写时，需要<code>确保</code>最外层有<code>try catch</code>进行异常捕获。</li>
+<li><code>async/await</code> 不是银弹，并不能解决所有的异步场景。必要时请使用<code>Promise</code>。</li>
+</ol>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../命名/_index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../代码提交流程/_index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a rel="next" href="../html标签/_index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
                     </nav>
@@ -166,11 +183,8 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../命名/_index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../代码提交流程/_index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="../html标签/_index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 

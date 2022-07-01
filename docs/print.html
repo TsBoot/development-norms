@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="注释/_index.html"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li><li class="chapter-item expanded "><a href="console/_index.html"><strong aria-hidden="true">4.</strong> console</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="注释/_index.html"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li><li class="chapter-item expanded "><a href="console/_index.html"><strong aria-hidden="true">4.</strong> console</a></li><li class="chapter-item expanded "><a href="开发工具插件/_index.html"><strong aria-hidden="true">5.</strong> 开发工具插件</a></li><li class="chapter-item expanded "><a href="代码提交流程/_index.html"><strong aria-hidden="true">6.</strong> 代码提交流程</a></li><li class="chapter-item expanded "><a href="异步代码/_index.html"><strong aria-hidden="true">7.</strong> 异步代码</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -345,6 +345,76 @@ k =&gt; key, v =&gt; value
 <p>标签语义化要求</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="console-控制台打印信息"><a class="header" href="#console-控制台打印信息">console 控制台打印信息</a></h1>
 <p>原则上调试完成要删除console.log代码</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vscode"><a class="header" href="#vscode">vscode</a></h1>
+<p>禁止禁用husky，eslint，stylelint，commitlint等约束工具</p>
+<pre><code>  推荐插件
+  vscode相关插件
+  ---必备---
+  dbaeumer.vscode-eslint
+  maggie.eslint-rules-zh-plugin
+  stylelint.vscode-stylelint
+  mikestead.dotenv
+  vue.volar
+  editorconfig.editorconfig
+  mhutchie.git-graph
+  esbenp.prettier-vscode(我不熟悉，先禁用)
+  shd101wyy.markdown-preview-enhanced
+  hollowtree.vue-snippets
+
+  ---可选---
+  redhat.vscode-yaml
+  purocean.drawio-preview
+  oderwat.indent-rainbow
+  henoc.svgeditor
+  tomoki1207.pdf
+  alexdima.git-branch
+  waderyan.gitblame
+
+  推荐工作效率软件 
+
+  微软 powerToys
+  国产 uTools（公司电脑不建议装，内存占用高，且插件需要下载）
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="多人开发项目-代码提交流程"><a class="header" href="#多人开发项目-代码提交流程">多人开发项目-代码提交流程</a></h1>
+<p>提交时将换行符改为<code>LF</code>格式</p>
+<pre><code class="language-bash">git config --global core.autocrlf input
+</code></pre>
+<p>主分支禁止直接提交</p>
+<p>分支名以具体开发功能命名</p>
+<ol>
+<li>新建分支</li>
+<li>开发分配给自己的功能</li>
+<li>完成功能后合并主分支代码并解决冲突</li>
+<li>提交代码合并，通知项目管理员，进行代码审计</li>
+<li>审计通过则合并分支，不通过则打回修改并重复上述流程</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="异步代码"><a class="header" href="#异步代码">异步代码</a></h1>
+<h2 id="settimeoutsetinterval-使用结束需要及时销毁"><a class="header" href="#settimeoutsetinterval-使用结束需要及时销毁">setTimeout,setInterval 使用结束需要及时销毁</a></h2>
+<pre><code class="language-js">const timeoutID = setTimeout(() =&gt; {
+  clearTimeout(timeoutID)
+}, 100); 
+
+
+let i = 0
+const intervalID = setInterval(() =&gt; {
+  if (i&gt;5) {
+    clearInterval(intervalID);
+  }
+}, 100);
+</code></pre>
+<h2 id="原则上禁止使用宏任务代码解决同步代码和微任务bug"><a class="header" href="#原则上禁止使用宏任务代码解决同步代码和微任务bug">原则上禁止使用宏任务代码解决同步代码和微任务Bug</a></h2>
+<p>例如：</p>
+<ol>
+<li>页面不跳转时获取不到数据，使用setTimeout跳转页面</li>
+<li>修改页面数据不更新，使用setTimeout刷新页面</li>
+<li>无法触发某个功能或事件，使用setTimeout触发事件</li>
+</ol>
+<h2 id="禁止直接操作dom"><a class="header" href="#禁止直接操作dom">禁止直接操作DOM</a></h2>
+<h2 id="尽量使用async-await编写异步代码"><a class="header" href="#尽量使用async-await编写异步代码">尽量使用async await编写异步代码</a></h2>
+<ol>
+<li>使用<code>async/await</code>编写时，需要<code>确保</code>最外层有<code>try catch</code>进行异常捕获。</li>
+<li><code>async/await</code> 不是银弹，并不能解决所有的异步场景。必要时请使用<code>Promise</code>。</li>
+</ol>
 
                     </main>
 

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>注释 - 前端开发规范</title>
+        <title>代码提交流程 - 前端开发规范</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="约定了前端开发规范.">
@@ -77,7 +77,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="../注释/_index.html" class="active"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="../html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li><li class="chapter-item expanded "><a href="../console/_index.html"><strong aria-hidden="true">4.</strong> console</a></li><li class="chapter-item expanded "><a href="../开发工具插件/_index.html"><strong aria-hidden="true">5.</strong> 开发工具插件</a></li><li class="chapter-item expanded "><a href="../代码提交流程/_index.html"><strong aria-hidden="true">6.</strong> 代码提交流程</a></li><li class="chapter-item expanded "><a href="../异步代码/_index.html"><strong aria-hidden="true">7.</strong> 异步代码</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../命名/_index.html"><strong aria-hidden="true">1.</strong> 命名</a></li><li class="chapter-item expanded "><a href="../注释/_index.html"><strong aria-hidden="true">2.</strong> 注释</a></li><li class="chapter-item expanded "><a href="../html标签/_index.html"><strong aria-hidden="true">3.</strong> html标签</a></li><li class="chapter-item expanded "><a href="../console/_index.html"><strong aria-hidden="true">4.</strong> console</a></li><li class="chapter-item expanded "><a href="../开发工具插件/_index.html"><strong aria-hidden="true">5.</strong> 开发工具插件</a></li><li class="chapter-item expanded "><a href="../代码提交流程/_index.html" class="active"><strong aria-hidden="true">6.</strong> 代码提交流程</a></li><li class="chapter-item expanded "><a href="../异步代码/_index.html"><strong aria-hidden="true">7.</strong> 异步代码</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -115,7 +115,7 @@
                         <a href="https://github.com/TsBoot/development-norms" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/TsBoot/development-norms/edit/master/src/注释/_index.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/TsBoot/development-norms/edit/master/src/代码提交流程/_index.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
                     </div>
@@ -142,22 +142,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="注释"><a class="header" href="#注释">注释</a></h1>
-<p>单行注释</p>
-<p>函数注释</p>
-<p>类注释</p>
-<p>原则上无需注释开发者信息，因为git中保留了开发者信息</p>
-<p>文档同步编写原则</p>
-<p>原则上应该编写单元测试代码</p>
+                        <h1 id="多人开发项目-代码提交流程"><a class="header" href="#多人开发项目-代码提交流程">多人开发项目-代码提交流程</a></h1>
+<p>提交时将换行符改为<code>LF</code>格式</p>
+<pre><code class="language-bash">git config --global core.autocrlf input
+</code></pre>
+<p>主分支禁止直接提交</p>
+<p>分支名以具体开发功能命名</p>
+<ol>
+<li>新建分支</li>
+<li>开发分配给自己的功能</li>
+<li>完成功能后合并主分支代码并解决冲突</li>
+<li>提交代码合并，通知项目管理员，进行代码审计</li>
+<li>审计通过则合并分支，不通过则打回修改并重复上述流程</li>
+</ol>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../命名/_index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../开发工具插件/_index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../html标签/_index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../异步代码/_index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -166,10 +172,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../命名/_index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../开发工具插件/_index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../html标签/_index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../异步代码/_index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
